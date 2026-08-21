@@ -78,6 +78,14 @@
   .st-na{background:var(--panel);color:var(--faint);border:1px solid var(--line)}
   .liverow .off{font-size:11.5px;color:var(--faint)}
 
+  .tech{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:11.5px}
+  .tech .tchip{padding:3px 9px;border-radius:999px;border:1px solid var(--line);background:var(--panel2);color:var(--dim)}
+  .tech .tchip.pos{color:var(--up);border-color:rgba(43,212,125,.4);background:rgba(43,212,125,.08)}
+  .tech .tchip.neg{color:var(--down);border-color:rgba(255,92,108,.4);background:rgba(255,92,108,.08)}
+  .tech .tchip.warn{color:var(--gold);border-color:rgba(245,196,81,.4);background:rgba(245,196,81,.08)}
+  .ainote{font-size:12px;color:#B9C6D9;background:rgba(94,177,255,.06);border:1px solid rgba(94,177,255,.25);border-radius:9px;padding:8px 11px;display:flex;gap:8px}
+  .ainote .tag{flex:none;font-family:var(--mono);font-size:10px;color:var(--sky);font-weight:700;padding-top:1px}
+
   .playrow{display:flex;gap:6px;flex-wrap:wrap}
   .play{font-size:11.5px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
   .play.short{background:rgba(255,169,77,.13);color:var(--amber);border:1px solid rgba(255,169,77,.45)}
@@ -118,12 +126,12 @@
   <div class="wrap">
     <div class="eyebrow">Watchlist · Analyst Picks · ส.ค. 2569</div>
     <h1>กระดานคัดหุ้น <span class="accent">SET & DR</span> จัดชั้นตามบทวิเคราะห์</h1>
-    <p class="sub">ราคาล่าสุดอัปเดตอัตโนมัติทุกชั่วโมง เทียบกับโซนเข้าซื้อ–TP–SL จากบทวิเคราะห์ · กด <b style="color:var(--amber)">⚡ เล่นสั้น</b> เพื่อกรองตัวที่เหมาะจบใน 1–2 สัปดาห์</p>
+    <p class="sub">ราคาล่าสุด + สัญญาณเทคนิค (SMA20, RSI14) อัปเดตอัตโนมัติทุกชั่วโมง เทียบกับโซนเข้าซื้อ–TP–SL จากบทวิเคราะห์ · กด <b style="color:var(--amber)">⚡ เล่นสั้น</b> เพื่อกรองตัวที่เหมาะจบใน 1–2 สัปดาห์</p>
     <div class="stamps">
       <div class="updated stale" id="updatedPill"><span class="dot"></span><span id="updatedText">กำลังโหลดราคาล่าสุด…</span><span class="ago" id="updatedAgo"></span></div>
       <div class="stamp">📋 ระดับราคาโบรก: บทวิเคราะห์ 4–13 ส.ค. 2569</div>
     </div>
-    <div class="warn">⚠️ เป้าหมาย/จุดตัดขาดทุนมาจากบทวิเคราะห์ช่วง 4–13 ส.ค. 2569 ส่วนราคาล่าสุดมาจากระบบอัตโนมัติ (อาจดีเลย์ 15–60 นาที) ใช้เพื่อการศึกษา ไม่ใช่คำแนะนำการลงทุน · ช่องที่มี * คือกฎบริหารความเสี่ยงทั่วไป ไม่ใช่ตัวเลขจากโบรก</div>
+    <div class="warn">⚠️ เป้าหมาย/จุดตัดขาดทุนมาจากบทวิเคราะห์ช่วง 4–13 ส.ค. 2569 ส่วนราคาและสัญญาณเทคนิค (SMA20/RSI14) คำนวณจากราคาจริงอัตโนมัติทุกชั่วโมง (อาจดีเลย์ 15–60 นาที) — สัญญาณเทคนิคเป็นข้อมูลเชิงตัวเลข ไม่ใช่คำแนะนำซื้อ/ขาย ใช้เพื่อการศึกษาเท่านั้น · ช่องที่มี * คือกฎบริหารความเสี่ยงทั่วไป ไม่ใช่ตัวเลขจากโบรก</div>
   </div>
 </header>
 
@@ -153,6 +161,7 @@
 
   <footer>
     <p><b>สถานะบนการ์ด:</b> ✅ ในโซนซื้อ = ราคาล่าสุดอยู่ในช่วง Entry · ⏳ เหนือโซน = ราคาวิ่งเลยโซนเข้าไปแล้ว รอย่อ · 🎯 ถึงเป้า = แตะ TP1 ขึ้นไป · ⛔ หลุด SL = ต่ำกว่าจุดตัดขาดทุน ควรทบทวนแผน</p>
+    <p><b>สัญญาณเทคนิค:</b> SMA20 = ราคาเฉลี่ย 20 วันย้อนหลัง · RSI14 = ดัชนีความแรงราคา (≥70 = ซื้อมากไป, ≤30 = ขายมากไป) · เป็นตัวเลขคำนวณอัตโนมัติจากราคาจริง ไม่ใช่คำแนะนำซื้อ/ขาย ควรใช้ประกอบการตัดสินใจร่วมกับปัจจัยอื่น</p>
     <p><b>ที่มา:</b> ระดับราคา — บทวิเคราะห์ บล.พาย, AIRA, Kingsford, CGSI, Globlex, KGI, บล.กรุงศรี, ธนชาต, IAA Consensus (4–13 ส.ค. 2569) · ราคาล่าสุด — Yahoo Finance ผ่านระบบอัปเดตรายชั่วโมง</p>
     <p><b>คำเตือน:</b> การลงทุนมีความเสี่ยง ผู้ลงทุนควรศึกษาข้อมูลก่อนการตัดสินใจลงทุน กระดานนี้ไม่ใช่คำแนะนำการลงทุนเฉพาะบุคคล</p>
   </footer>
@@ -308,6 +317,24 @@ function liveHTML(s){
   </div>`;
 }
 
+function techHTML(s){
+  const q=QUOTES[s.sym];
+  if(!q || q.sma20==null) return '';
+  const trendCls = (q.trend||'').includes('ขาขึ้น') ? 'pos' : (q.trend||'').includes('ขาลง') ? 'neg' : '';
+  const rsiCls = q.rsi14>=70 ? 'warn' : q.rsi14<=30 ? 'pos' : '';
+  const sigCls = (q.signal||'').includes('สะสม') ? 'pos' : (q.signal||'').includes('ระวัง') ? 'warn' : '';
+  return `<div class="tech">
+    <span class="tchip ${trendCls}">${q.trend||''}</span>
+    <span class="tchip ${rsiCls}">${q.rsiLabel||''}</span>
+    ${q.signal?`<span class="tchip ${sigCls}">⚙ ${q.signal}</span>`:''}
+  </div>`;
+}
+function aiNoteHTML(s){
+  const q=QUOTES[s.sym];
+  if(!q || !q.aiNote) return '';
+  return `<div class="ainote"><span class="tag">AI</span><span>${q.aiNote}</span></div>`;
+}
+
 function ladderHTML(s){
   const l=s.lad; if(!l) return '';
   const min=l.sl-(l.tp-l.sl)*0.06, max=l.tp+(l.tp-l.sl)*0.06;
@@ -331,6 +358,8 @@ function cardHTML(s){
       <div class="chips"><span class="chip">${s.sector}</span><span class="tier-badge ${TIERS[s.tier].cls}" style="font-size:11px;padding:3px 9px">${s.tier==='D'?'DR':'Tier '+s.tier}</span></div>
     </div>
     ${liveHTML(s)}
+    ${techHTML(s)}
+    ${aiNoteHTML(s)}
     <div class="playrow">${plays}</div>
     <div class="reason">${s.reason}</div>
     <div class="levels">
