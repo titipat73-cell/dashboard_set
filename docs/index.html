@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>กระดานคัดหุ้น SET & DR — ส.ค. 2569</title>
+<title>กระดานหุ้น SET & DR — แผนเทคนิคเรียลไทม์</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
 <style>
@@ -19,9 +19,10 @@
 
   header{border-bottom:1px solid var(--line);background:linear-gradient(180deg,#101825 0%,var(--bg) 100%);padding:30px 0 20px}
   .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--sky);text-transform:uppercase;margin-bottom:10px}
-  h1{font-size:clamp(22px,4vw,36px);font-weight:700;letter-spacing:-.01em}
+  h1{font-size:clamp(22px,4vw,34px);font-weight:700;letter-spacing:-.01em}
   h1 .accent{color:var(--gold)}
-  .sub{color:var(--dim);margin-top:8px;max-width:760px;font-size:14px}
+  .sub{color:var(--dim);margin-top:8px;max-width:780px;font-size:14px}
+
   .stamps{margin-top:12px;display:flex;flex-wrap:wrap;gap:8px}
   .updated{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12px;color:var(--up);background:rgba(43,212,125,.08);border:1px solid rgba(43,212,125,.3);border-radius:999px;padding:5px 14px}
   .updated.stale{color:var(--dim);background:var(--panel2);border-color:var(--line)}
@@ -32,9 +33,10 @@
   .updated.old .dot{background:var(--amber);animation:none}
   .stamp{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:12px;color:var(--dim);background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:5px 14px}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
-  .livetime{margin-left:auto;font-size:10.5px;color:var(--faint);font-family:var(--mono);white-space:nowrap}
 
   .warn{margin-top:14px;background:rgba(255,169,77,.07);border:1px solid rgba(255,169,77,.35);border-radius:10px;padding:11px 15px;font-size:12.5px;color:#FFD9A8}
+  .method{margin-top:10px;background:rgba(94,177,255,.06);border:1px solid rgba(94,177,255,.25);border-radius:10px;padding:11px 15px;font-size:12.5px;color:#C7D6E8}
+  .method b{color:var(--sky)}
 
   .controls{display:flex;flex-direction:column;gap:10px;margin:24px 0 6px}
   .crow{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
@@ -57,8 +59,8 @@
   .tD{background:rgba(183,140,255,.12);color:var(--violet);border:1px solid rgba(183,140,255,.4)}
   .tier-head .desc{color:var(--dim);font-size:12.5px}
 
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:14px}
-  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:11px;transition:border-color .15s}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:12px;transition:border-color .15s}
   .card:hover{border-color:#31415A}
   .card-top{display:flex;align-items:flex-start;gap:10px}
   .sym{font-family:var(--mono);font-size:19px;font-weight:700}
@@ -67,7 +69,7 @@
   .chip{font-size:11px;padding:3px 9px;border-radius:999px;background:var(--panel2);border:1px solid var(--line);color:var(--dim);white-space:nowrap}
 
   .liverow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:8px 12px}
-  .lp{font-family:var(--mono);font-size:17px;font-weight:700}
+  .lp{font-family:var(--mono);font-size:18px;font-weight:700}
   .lc{font-family:var(--mono);font-size:12.5px;font-weight:700}
   .lc.up{color:var(--up)} .lc.down{color:var(--down)} .lc.flat{color:var(--dim)}
   .status{margin-left:auto;font-size:11.5px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
@@ -77,38 +79,48 @@
   .st-sl{background:rgba(255,92,108,.12);color:var(--down);border:1px solid rgba(255,92,108,.45)}
   .st-na{background:var(--panel);color:var(--faint);border:1px solid var(--line)}
   .liverow .off{font-size:11.5px;color:var(--faint)}
+  .livetime{margin-left:auto;font-size:10.5px;color:var(--faint);font-family:var(--mono);white-space:nowrap}
 
   .tech{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:11.5px}
   .tech .tchip{padding:3px 9px;border-radius:999px;border:1px solid var(--line);background:var(--panel2);color:var(--dim)}
   .tech .tchip.pos{color:var(--up);border-color:rgba(43,212,125,.4);background:rgba(43,212,125,.08)}
   .tech .tchip.neg{color:var(--down);border-color:rgba(255,92,108,.4);background:rgba(255,92,108,.08)}
   .tech .tchip.warn{color:var(--gold);border-color:rgba(245,196,81,.4);background:rgba(245,196,81,.08)}
-  .ainote{font-size:12px;color:#B9C6D9;background:rgba(94,177,255,.06);border:1px solid rgba(94,177,255,.25);border-radius:9px;padding:8px 11px;display:flex;gap:8px}
-  .ainote .tag{flex:none;font-family:var(--mono);font-size:10px;color:var(--sky);font-weight:700;padding-top:1px}
 
-  .playrow{display:flex;gap:6px;flex-wrap:wrap}
-  .play{font-size:11.5px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
-  .play.short{background:rgba(255,169,77,.13);color:var(--amber);border:1px solid rgba(255,169,77,.45)}
-  .play.accum{background:rgba(43,212,125,.11);color:var(--up);border:1px solid rgba(43,212,125,.4)}
-  .play .hz{font-weight:400;opacity:.75}
-  .reason{font-size:13px;color:#C4CEDB}
-  .src{font-size:11px;color:var(--faint)}
-  .src b{color:var(--dim);font-weight:500}
-
+  .plan-head{display:flex;align-items:center;gap:8px;margin-top:2px}
+  .plan-head .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--sky);text-transform:uppercase}
+  .plan-head .rr{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--dim);background:var(--panel2);border:1px solid var(--line);border-radius:999px;padding:2px 9px}
   .levels{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
   .lv{background:var(--panel2);border:1px solid var(--line);border-radius:9px;padding:7px 9px}
   .lv .t{font-size:10.5px;color:var(--dim);letter-spacing:.04em}
-  .lv .n{font-family:var(--mono);font-size:13px;font-weight:700;margin-top:2px}
+  .lv .n{font-family:var(--mono);font-size:13.5px;font-weight:700;margin-top:2px}
   .lv.entry .n{color:var(--sky)}
   .lv.tp .n{color:var(--up)}
   .lv.sl .n{color:var(--down)}
+  .lv.na .n{color:var(--faint);font-size:11px;font-weight:400}
 
   .ladder{position:relative;height:34px;margin-top:2px}
   .ladder .track{position:absolute;top:14px;left:0;right:0;height:5px;border-radius:99px;background:linear-gradient(90deg,var(--down) 0%,var(--down) 12%,#2A3648 12%,#2A3648 55%,var(--up) 55%,var(--up) 100%);opacity:.85}
   .ladder .pin{position:absolute;top:8px;width:2px;height:17px;border-radius:2px}
   .ladder .pin.cur{width:3px;top:5px;height:23px;background:var(--ink);box-shadow:0 0 6px rgba(233,238,245,.5)}
   .ladder .lab{position:absolute;top:-4px;transform:translateX(-50%);font-family:var(--mono);font-size:9.5px;color:var(--dim)}
-  .upside{font-family:var(--mono);font-size:12px;color:var(--up)}
+
+  .ainote{font-size:12px;color:#B9C6D9;background:rgba(94,177,255,.06);border:1px solid rgba(94,177,255,.25);border-radius:9px;padding:8px 11px;display:flex;gap:8px}
+  .ainote .tag{flex:none;font-family:var(--mono);font-size:10px;color:var(--sky);font-weight:700;padding-top:1px}
+
+  .analyst{border-top:1px dashed var(--line);padding-top:11px;display:flex;flex-direction:column;gap:6px}
+  .analyst .lbl2{font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--faint);text-transform:uppercase}
+  .analyst .reason{font-size:12.5px;color:#9FACBE}
+  .analyst .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px}
+  .analyst .src{font-size:11px;color:var(--faint)}
+  .analyst .src b{color:var(--dim);font-weight:500}
+  .analyst .target{font-family:var(--mono);font-size:11.5px;color:var(--gold)}
+
+  .playrow{display:flex;gap:6px;flex-wrap:wrap}
+  .play{font-size:11.5px;font-weight:600;padding:3px 10px;border-radius:999px;white-space:nowrap}
+  .play.short{background:rgba(255,169,77,.13);color:var(--amber);border:1px solid rgba(255,169,77,.45)}
+  .play.accum{background:rgba(43,212,125,.11);color:var(--up);border:1px solid rgba(43,212,125,.4)}
+  .play .hz{font-weight:400;opacity:.75}
 
   footer{margin-top:44px;border-top:1px solid var(--line);padding-top:18px;color:var(--faint);font-size:12px}
   footer p+p{margin-top:6px}
@@ -124,14 +136,15 @@
 
 <header>
   <div class="wrap">
-    <div class="eyebrow">Watchlist · Analyst Picks · ส.ค. 2569</div>
-    <h1>กระดานคัดหุ้น <span class="accent">SET & DR</span> จัดชั้นตามบทวิเคราะห์</h1>
-    <p class="sub">ราคาล่าสุด + สัญญาณเทคนิค (SMA20, RSI14) อัปเดตอัตโนมัติทุกชั่วโมง เทียบกับโซนเข้าซื้อ–TP–SL จากบทวิเคราะห์ · กด <b style="color:var(--amber)">⚡ เล่นสั้น</b> เพื่อกรองตัวที่เหมาะจบใน 1–2 สัปดาห์</p>
+    <div class="eyebrow">Technical-first Watchlist · SET & DR</div>
+    <h1>กระดานหุ้น <span class="accent">SET & DR</span> — แผนเทคนิคเรียลไทม์</h1>
+    <p class="sub">Entry / TP / SL คำนวณจากกราฟราคาจริง ณ เวลานั้น ๆ (SMA20, ATR14, แนวรับ-แนวต้าน) เป็นหลัก อัปเดตอัตโนมัติทุกชั่วโมง ส่วนเหตุผล+เป้าหมายจากบทวิเคราะห์โบรกเกอร์อยู่ด้านล่างของการ์ดเป็นข้อมูลเสริม</p>
     <div class="stamps">
-      <div class="updated stale" id="updatedPill"><span class="dot"></span><span id="updatedText">กำลังโหลดราคาล่าสุด…</span><span class="ago" id="updatedAgo"></span></div>
-      <div class="stamp">📋 ระดับราคาโบรก: บทวิเคราะห์ 4–13 ส.ค. 2569</div>
+      <div class="updated stale" id="updatedPill"><span class="dot"></span><span id="updatedText">กำลังโหลดข้อมูลล่าสุด…</span><span class="ago" id="updatedAgo"></span></div>
+      <div class="stamp">📋 บทวิเคราะห์อ้างอิง: 4–13 ส.ค. 2569</div>
     </div>
-    <div class="warn">⚠️ เป้าหมาย/จุดตัดขาดทุนมาจากบทวิเคราะห์ช่วง 4–13 ส.ค. 2569 ส่วนราคาและสัญญาณเทคนิค (SMA20/RSI14) คำนวณจากราคาจริงอัตโนมัติทุกชั่วโมง (อาจดีเลย์ 15–60 นาที) — สัญญาณเทคนิคเป็นข้อมูลเชิงตัวเลข ไม่ใช่คำแนะนำซื้อ/ขาย ใช้เพื่อการศึกษาเท่านั้น · ช่องที่มี * คือกฎบริหารความเสี่ยงทั่วไป ไม่ใช่ตัวเลขจากโบรก</div>
+    <div class="warn">⚠️ แผนเทคนิคคำนวณจากสูตรตายตัว (ATR/SMA/แนวรับ-แนวต้าน) ไม่ใช่การพยากรณ์อนาคต และไม่ใช่คำแนะนำการลงทุน ราคาจาก Yahoo Finance อาจดีเลย์ 15–60 นาที ใช้เพื่อการศึกษาเท่านั้น</div>
+    <div class="method"><b>วิธีคำนวณแผน:</b> Entry = ราคาปัจจุบัน ± 0.5×ATR14 · SL = แนวรับ 20 วัน (หรือ price − 2×ATR ถ้าแนวรับไกลเกิน) · TP1 = แนวต้าน 20 วัน (หรือ price + 1.5×ATR) · TP2 = ส่วนขยายผลจาก ATR</div>
   </div>
 </header>
 
@@ -160,9 +173,9 @@
   <div id="board"></div>
 
   <footer>
-    <p><b>สถานะบนการ์ด:</b> ✅ ในโซนซื้อ = ราคาล่าสุดอยู่ในช่วง Entry · ⏳ เหนือโซน = ราคาวิ่งเลยโซนเข้าไปแล้ว รอย่อ · 🎯 ถึงเป้า = แตะ TP1 ขึ้นไป · ⛔ หลุด SL = ต่ำกว่าจุดตัดขาดทุน ควรทบทวนแผน</p>
-    <p><b>สัญญาณเทคนิค:</b> SMA20 = ราคาเฉลี่ย 20 วันย้อนหลัง · RSI14 = ดัชนีความแรงราคา (≥70 = ซื้อมากไป, ≤30 = ขายมากไป) · เป็นตัวเลขคำนวณอัตโนมัติจากราคาจริง ไม่ใช่คำแนะนำซื้อ/ขาย ควรใช้ประกอบการตัดสินใจร่วมกับปัจจัยอื่น</p>
-    <p><b>ที่มา:</b> ระดับราคา — บทวิเคราะห์ บล.พาย, AIRA, Kingsford, CGSI, Globlex, KGI, บล.กรุงศรี, ธนชาต, IAA Consensus (4–13 ส.ค. 2569) · ราคาล่าสุด — Yahoo Finance ผ่านระบบอัปเดตรายชั่วโมง</p>
+    <p><b>สถานะ:</b> ✅ ในโซนเข้า = ราคาล่าสุดอยู่ในช่วง Entry ที่คำนวณ · ⏳ เหนือโซน = ราคาวิ่งเลยโซนเข้าไปแล้ว · 🎯 ถึง TP1 = แตะเป้าแรกแล้ว · ⛔ หลุด SL = ต่ำกว่าจุดตัดขาดทุนที่คำนวณ</p>
+    <p><b>สัญญาณเทคนิคประกอบ:</b> SMA20 = ราคาเฉลี่ย 20 วัน · RSI14 = ดัชนีความแรงราคา (≥70 ซื้อมากไป, ≤30 ขายมากไป) · ATR14 = ความผันผวนเฉลี่ยที่ใช้คำนวณระยะ Entry/TP/SL</p>
+    <p><b>ข้อมูลเสริม:</b> เหตุผล/เป้าหมายราคาจากบทวิเคราะห์ บล.พาย, AIRA, Kingsford, CGSI, Globlex, KGI, บล.กรุงศรี, ธนชาต (4–13 ส.ค. 2569) — ใช้ประกอบการตัดสินใจ ไม่ใช่ตัวเลขที่ระบบใช้คำนวณแผนหลัก</p>
     <p><b>คำเตือน:</b> การลงทุนมีความเสี่ยง ผู้ลงทุนควรศึกษาข้อมูลก่อนการตัดสินใจลงทุน กระดานนี้ไม่ใช่คำแนะนำการลงทุนเฉพาะบุคคล</p>
   </footer>
 </div>
@@ -179,91 +192,63 @@ const PLAY = {
   accum:{cls:'accum',label:'🧺 ซื้อสะสม',hz:'ถือได้ยาว'}
 };
 
-/* zone: [entryLow, entryHigh] · tpN/slN: ตัวเลขสำหรับคำนวณสถานะ (null = ไม่มีตัวเลขโบรก) */
+/* DATA = ข้อมูลเสริมเชิงคุณภาพ (ไม่มี entry/tp/sl ตายตัวอีกต่อไป — เลขจริงมาจาก data.json ทุกชั่วโมง) */
 const DATA = [
  {sym:'BDMS',name:'กรุงเทพดุสิตเวชการ',sector:'โรงพยาบาล',tier:'S',play:['short','accum'],
-  reason:'เล่นได้ 2 จังหวะ — สายสั้นใช้กรอบ Globlex เข้า 19.30–19.90 เป้า 20.00/20.50 ตัดที่ 19.00 · สายสะสมอิง Kingsford "ซื้อสะสม" เป้าพื้นฐาน 26 บ.',
-  src:'Kingsford · Globlex · บล.พาย',
-  entry:'19.30–19.90',tp1:'20.50',tp2:'26.00',sl:'19.00',
-  zone:[19.30,19.90],tpN:20.50,slN:19.00,lad:{sl:19.0,tp:26.0},up:'สั้น +4% / ยาว +33%'},
+  reason:'หุ้น Defensive ที่โบรกแนะนำตรงกันหลายสำนัก — Kingsford ให้ "ซื้อสะสม" เป้าพื้นฐาน 26 บ. Globlex ให้กรอบเล่นสั้น',
+  src:'Kingsford · Globlex · บล.พาย', analystTarget:'เป้าพื้นฐาน 26.00 บ.'},
 
  {sym:'KKP',name:'ธ.เกียรตินาคินภัทร',sector:'ธนาคาร',tier:'S',play:['accum'],
-  reason:'YTD +65% แต่กำไรยังมีแรงหนุน — KGI อัปเกรด Outperform เป้า 125 บ. ปันผลปี 69 ราว 4.8% Consensus 16 โบรกเฉลี่ย 118 บ. เหมาะสะสมมากกว่าเทรดสั้น',
-  src:'KGI · IAA Consensus',
-  entry:'110–113',tp1:'118',tp2:'125',sl:'~105 *',
-  zone:[110,113],tpN:118,slN:105,lad:{sl:105,tp:125},up:'+11% (ถึงเป้า KGI)'},
+  reason:'YTD +65% แต่กำไรยังมีแรงหนุน — KGI อัปเกรด Outperform เป้า 125 บ. ปันผลปี 69 ราว 4.8% Consensus 16 โบรกเฉลี่ย 118 บ.',
+  src:'KGI · IAA Consensus', analystTarget:'เป้า KGI 125.00 บ. / Consensus 118.06 บ.'},
 
  {sym:'DELTA',name:'เดลต้า อีเลคโทรนิคส์',sector:'อิเล็กทรอนิกส์',tier:'S',play:['short'],
-  reason:'หัวขบวนธีม AI/Semi — 10 ส.ค. พุ่ง 6% ลากดัชนีขึ้น 12 จุด บล.พายจัดกลุ่มเทคฯ แนะนำ (DELTA HANA KCE) · โมเมนตัมแรงแต่ผันผวนสูง เหมาะเทรดสั้นตามรอบ Semi สหรัฐฯ',
-  src:'บล.พาย · ข้อมูลตลาด 10 ส.ค.',
-  entry:'รอย่อ 3–5% *',tp1:'—',tp2:'—',sl:'-7% จากต้นทุน *',
-  zone:null,tpN:null,slN:null,lad:null,up:null},
+  reason:'หัวขบวนธีม AI/Semi — 10 ส.ค. พุ่ง 6% ลากดัชนีขึ้น 12 จุด บล.พายจัดกลุ่มเทคฯ แนะนำ (DELTA HANA KCE)',
+  src:'บล.พาย · ข้อมูลตลาด 10 ส.ค.', analystTarget:'ไม่มีเป้าราคาตายตัวจากแหล่งนี้'},
 
  {sym:'AWC',name:'แอสเสท เวิรด์ คอร์ป',sector:'ท่องเที่ยว/อสังหาฯ',tier:'A',play:['accum'],
-  reason:'AIRA คาดกำไร Q2/69 +12% YoY และ Q3 ยังบวกต่อ — RevPAR และยอดจองล่วงหน้าชี้รายได้ค่าห้องโต >20% YoY เป้าหมาย 3.60 บ.',
-  src:'AIRA (หุ้นเด่นเดือน ส.ค.)',
-  entry:'ราคาตลาด/รอย่อ *',tp1:'3.60',tp2:'—',sl:'-7% จากต้นทุน *',
-  zone:null,tpN:3.60,slN:null,lad:null,up:null},
+  reason:'AIRA คาดกำไร Q2/69 +12% YoY และ Q3 ยังบวกต่อ — RevPAR และยอดจองล่วงหน้าชี้รายได้ค่าห้องโต >20% YoY',
+  src:'AIRA (หุ้นเด่นเดือน ส.ค.)', analystTarget:'เป้าพื้นฐาน 3.60 บ.'},
 
  {sym:'BANPU',name:'บ้านปู',sector:'พลังงาน',tier:'A',play:['accum'],
-  reason:'หนึ่งใน 4 หุ้นเด่นเดือน ส.ค. ของ AIRA ธีมพื้นฐานแกร่ง–กำไรโตต่อเนื่อง เป้าหมาย 18.80 บ.',
-  src:'AIRA (หุ้นเด่นเดือน ส.ค.)',
-  entry:'ราคาตลาด/รอย่อ *',tp1:'18.80',tp2:'—',sl:'-7% จากต้นทุน *',
-  zone:null,tpN:18.80,slN:null,lad:null,up:null},
+  reason:'หนึ่งใน 4 หุ้นเด่นเดือน ส.ค. ของ AIRA ธีมพื้นฐานแกร่ง–กำไรโตต่อเนื่อง',
+  src:'AIRA (หุ้นเด่นเดือน ส.ค.)', analystTarget:'เป้าพื้นฐาน 18.80 บ.'},
 
  {sym:'DOHOME',name:'ดูโฮม',sector:'ค้าปลีกวัสดุ',tier:'A',play:['accum','short'],
-  reason:'กำไร Q2/69 โตทั้ง QoQ/YoY ครึ่งปีหลังโตต่อจากมาตรการรัฐ + รายได้เกษตรฟื้น เป้า 4.30 บ. · เล่นสั้นเก็งงบได้ แต่ควรมีงบรองรับก่อนไล่ราคา',
-  src:'บทวิเคราะห์รายเดือน ส.ค.',
-  entry:'ราคาตลาด/รอย่อ *',tp1:'4.30',tp2:'—',sl:'-6% จากต้นทุน *',
-  zone:null,tpN:4.30,slN:null,lad:null,up:null},
+  reason:'กำไร Q2/69 โตทั้ง QoQ/YoY ครึ่งปีหลังโตต่อจากมาตรการรัฐ + รายได้เกษตรฟื้น',
+  src:'บทวิเคราะห์รายเดือน ส.ค.', analystTarget:'เป้าพื้นฐาน 4.30 บ.'},
 
  {sym:'EPG',name:'อีสเทิร์นโพลีเมอร์',sector:'ปิโตรเคมี/วัสดุ',tier:'A',play:['accum'],
-  reason:'คาดกำไรงวด มิ.ย. ทำ New High +18% QoQ / +19% YoY ที่ 410 ลบ. ธีมยาว Data Center/Semi ต้องใช้ฉนวนยางคุมอุณหภูมิ เป้า 6.90 บ.',
-  src:'บทวิเคราะห์รายเดือน ส.ค.',
-  entry:'ราคาตลาด/รอย่อ *',tp1:'6.90',tp2:'—',sl:'-7% จากต้นทุน *',
-  zone:null,tpN:6.90,slN:null,lad:null,up:null},
+  reason:'คาดกำไรงวด มิ.ย. ทำ New High +18% QoQ / +19% YoY ธีมยาว Data Center/Semi',
+  src:'บทวิเคราะห์รายเดือน ส.ค.', analystTarget:'เป้าพื้นฐาน 6.90 บ.'},
 
  {sym:'CPAXT',name:'ซีพี แอ็กซ์ตร้า',sector:'ค้าปลีก',tier:'B',play:['short'],
-  reason:'AIRA แนะ "ซื้อเล่นสั้น" ตรง ๆ — จุดเข้า 15.00 / 14.70 เป้า 15.50 และ 16.40 เล่นรอบตามธีมบริโภคฟื้น จบรอบเร็ว',
-  src:'AIRA (Analyst Picks 5 ส.ค.)',
-  entry:'14.70–15.00',tp1:'15.50',tp2:'16.40',sl:'14.30 *',
-  zone:[14.70,15.00],tpN:15.50,slN:14.30,lad:{sl:14.3,tp:16.4},up:'+10% (ถึง TP2)'},
+  reason:'AIRA แนะ "ซื้อเล่นสั้น" ตรง ๆ ตามธีมบริโภคฟื้น จบรอบเร็ว',
+  src:'AIRA (Analyst Picks 5 ส.ค.)', analystTarget:'เป้าสั้น 15.50 / 16.40 บ.'},
 
  {sym:'COCOCO',name:'ไทย โคโคนัท',sector:'อาหาร/ส่งออก',tier:'B',play:['short'],
-  reason:'CGSI แนะ "ซื้อ" ตามกรอบเทคนิค — โซนเข้า 6.00–6.15 เป้า 6.50 และ 6.80 กรอบแคบชัดเจน เหมาะจบใน 1–2 สัปดาห์',
-  src:'CGSI (Analyst Picks 6 ส.ค.)',
-  entry:'6.00–6.15',tp1:'6.50',tp2:'6.80',sl:'5.85 *',
-  zone:[6.00,6.15],tpN:6.50,slN:5.85,lad:{sl:5.85,tp:6.8},up:'+12% (ถึง TP2)'},
+  reason:'CGSI แนะ "ซื้อ" ตามกรอบเทคนิค กรอบแคบชัดเจน เหมาะจบใน 1–2 สัปดาห์',
+  src:'CGSI (Analyst Picks 6 ส.ค.)', analystTarget:'เป้าสั้น 6.50 / 6.80 บ.'},
 
  {sym:'KTC',name:'บัตรกรุงไทย',sector:'ไฟแนนซ์',tier:'B',play:['short'],
-  reason:'หุ้นแนะนำรายวันสายเทคนิคของธนชาต (CRC, KTC, ERW) เล่นเด้งตาม Gap ระหว่างดัชนีแกว่ง — ถือสั้นตามสัญญาณ หลุดแนวรับคือออก',
-  src:'ธนชาต (Technical Story 6 ส.ค.)',
-  entry:'ตามสัญญาณเทคนิค *',tp1:'—',tp2:'—',sl:'-5% จากต้นทุน *',
-  zone:null,tpN:null,slN:null,lad:null,up:null},
+  reason:'หุ้นแนะนำรายวันสายเทคนิคของธนชาต เล่นเด้งตาม Gap ระหว่างดัชนีแกว่ง',
+  src:'ธนชาต (Technical Story 6 ส.ค.)', analystTarget:'ไม่มีเป้าราคาตายตัวจากแหล่งนี้'},
 
  {sym:'BBGI',name:'บีบีจีไอ',sector:'พลังงานชีวภาพ',tier:'B',play:['short'],
-  reason:'Globlex แนะ "ซื้อ" เป้า 9.70 บ. เก็งกำไรตามธีมพลังงานทดแทน — ตัวเก็งข่าว วิ่งเร็วลงเร็ว คุมไม้ให้เล็ก',
-  src:'Globlex (Analyst Picks 7 ส.ค.)',
-  entry:'ราคาตลาด *',tp1:'9.70',tp2:'—',sl:'-6% จากต้นทุน *',
-  zone:null,tpN:9.70,slN:null,lad:null,up:null},
+  reason:'Globlex แนะ "ซื้อ" เก็งกำไรตามธีมพลังงานทดแทน วิ่งเร็วลงเร็ว คุมไม้ให้เล็ก',
+  src:'Globlex (Analyst Picks 7 ส.ค.)', analystTarget:'เป้า 9.70 บ.'},
 
  {sym:'AAPL80',name:'DR อ้างอิง Apple Inc.',sector:'DR · เทคสหรัฐ',tier:'D',play:['accum'],
-  reason:'DR ยอดนิยมกลุ่มเทคสหรัฐฯ — ซื้อขายเป็นบาท เริ่ม 1 หน่วย เหมาะ DCA กระจายพอร์ตออกนอก SET ราคาวิ่งตามหุ้นแม่ + ค่าเงิน',
-  src:'DR ยอดนิยมในตลาดไทย',
-  entry:'DCA / รอย่อ *',tp1:'ตามหุ้นแม่',tp2:'—',sl:'Trailing -10% *',
-  zone:null,tpN:null,slN:null,lad:null,up:null},
+  reason:'DR ยอดนิยมกลุ่มเทคสหรัฐฯ ซื้อขายเป็นบาท เริ่ม 1 หน่วย ราคาวิ่งตามหุ้นแม่ + ค่าเงิน',
+  src:'DR ยอดนิยมในตลาดไทย', analystTarget:'อ้างอิงเป้าหุ้นแม่ Apple'},
 
  {sym:'TSLA80',name:'DR อ้างอิง Tesla Inc.',sector:'DR · EV/เทค',tier:'D',play:['short'],
-  reason:'DR ยอดนิยมสาย EV ผันผวนสูงตามหุ้นแม่ — สายสั้นเล่นสวิงตามข่าวหุ้นแม่ได้ แต่ระวังราคา DR เปิดกระโดดตามตลาดสหรัฐฯ ข้ามคืน คุมไม้เล็ก',
-  src:'DR ยอดนิยมในตลาดไทย',
-  entry:'ตามสวิงหุ้นแม่ *',tp1:'—',tp2:'—',sl:'Trailing -12% *',
-  zone:null,tpN:null,slN:null,lad:null,up:null},
+  reason:'DR ยอดนิยมสาย EV ผันผวนสูงตามหุ้นแม่ ระวังราคาเปิดกระโดดข้ามคืน',
+  src:'DR ยอดนิยมในตลาดไทย', analystTarget:'อ้างอิงเป้าหุ้นแม่ Tesla'},
 
  {sym:'BABA80',name:'DR อ้างอิง Alibaba',sector:'DR · เทคจีน',tier:'D',play:['accum','short'],
-  reason:'DR ยอดนิยมฝั่งเทคจีน Valuation ถูกกว่าเทคสหรัฐฯ — ปีนี้ DR เข้าใหม่ 260 หลักทรัพย์ ผลตอบแทนเฉลี่ย +9% สะท้อนความนิยมหุ้นเทคผ่าน DR สูงขึ้น',
-  src:'DR ยอดนิยม · ข้อมูล efin 6 ส.ค.',
-  entry:'ทยอยสะสม *',tp1:'ตามหุ้นแม่',tp2:'—',sl:'Trailing -10% *',
-  zone:null,tpN:null,slN:null,lad:null,up:null},
+  reason:'DR ยอดนิยมฝั่งเทคจีน Valuation ถูกกว่าเทคสหรัฐฯ ปีนี้ DR เข้าใหม่ 260 หลักทรัพย์ ผลตอบแทนเฉลี่ย +9%',
+  src:'DR ยอดนิยม · ข้อมูล efin 6 ส.ค.', analystTarget:'อ้างอิงเป้าหุ้นแม่ Alibaba'},
 ];
 
 let tier='all', play='all', query='';
@@ -286,19 +271,20 @@ function shortTime(iso){
   if(isNaN(d)) return '';
   return d.toLocaleTimeString('th-TH',{hour:'2-digit',minute:'2-digit',timeZone:'Asia/Bangkok'})+' น.';
 }
+function fmt(n){
+  if(n==null) return '—';
+  return n.toLocaleString('th-TH',{maximumFractionDigits:2,minimumFractionDigits:2});
+}
 
 function statusOf(s){
   const q=QUOTES[s.sym];
-  if(!q || q.price==null) return null;
-  const p=q.price;
-  if(s.slN!=null && p < s.slN)  return {cls:'st-sl', txt:'⛔ หลุด SL'};
-  if(s.tpN!=null && p >= s.tpN) return {cls:'st-tp', txt:'🎯 ถึงเป้าแล้ว'};
-  if(s.zone){
-    if(p>=s.zone[0] && p<=s.zone[1]) return {cls:'st-buy', txt:'✅ ในโซนซื้อ'};
-    if(p<s.zone[0])  return {cls:'st-buy', txt:'✅ ต่ำกว่าโซน (ถูกกว่าแผน)'};
-    return {cls:'st-wait', txt:'⏳ เหนือโซนซื้อ รอย่อ'};
-  }
-  return {cls:'st-na', txt:'ดูเทียบเป้าโบรก'};
+  if(!q || q.price==null || !q.plan) return null;
+  const p=q.price, pl=q.plan;
+  if(p < pl.sl)  return {cls:'st-sl', txt:'⛔ หลุด SL'};
+  if(p >= pl.tp1) return {cls:'st-tp', txt:'🎯 ถึง TP1 แล้ว'};
+  if(p>=pl.entryLow && p<=pl.entryHigh) return {cls:'st-buy', txt:'✅ ในโซนเข้า'};
+  if(p<pl.entryLow) return {cls:'st-buy', txt:'✅ ต่ำกว่าโซน (ถูกกว่าแผน)'};
+  return {cls:'st-wait', txt:'⏳ เหนือโซนเข้า'};
 }
 
 function liveHTML(s){
@@ -310,7 +296,7 @@ function liveHTML(s){
   const sign=q.chgPct>0?'+':'';
   const st=statusOf(s);
   return `<div class="liverow">
-    <span class="lp">${q.price.toLocaleString('th-TH',{maximumFractionDigits:2})}</span>
+    <span class="lp">${fmt(q.price)}</span>
     <span class="lc ${cls}">${sign}${q.chg??''} (${sign}${q.chgPct??''}%)</span>
     ${st?`<span class="status ${st.cls}">${st.txt}</span>`:''}
     ${SHORT_TIME?`<span class="livetime">🕐 ${SHORT_TIME}</span>`:''}
@@ -329,24 +315,48 @@ function techHTML(s){
     ${q.signal?`<span class="tchip ${sigCls}">⚙ ${q.signal}</span>`:''}
   </div>`;
 }
+
 function aiNoteHTML(s){
   const q=QUOTES[s.sym];
   if(!q || !q.aiNote) return '';
   return `<div class="ainote"><span class="tag">AI</span><span>${q.aiNote}</span></div>`;
 }
 
-function ladderHTML(s){
-  const l=s.lad; if(!l) return '';
-  const min=l.sl-(l.tp-l.sl)*0.06, max=l.tp+(l.tp-l.sl)*0.06;
-  const pct=v=>Math.min(100,Math.max(0,(v-min)/(max-min)*100)).toFixed(1)+'%';
+function planHTML(s){
   const q=QUOTES[s.sym];
-  const e=s.zone?(s.zone[0]+s.zone[1])/2:null;
+  const pl = q && q.plan;
+  if(!pl){
+    return `<div class="plan-head"><span class="lbl">แผนเทคนิค ณ เวลานี้</span></div>
+    <div class="levels">
+      <div class="lv na"><div class="t">เข้าซื้อ</div><div class="n">รอข้อมูล</div></div>
+      <div class="lv na"><div class="t">TP1</div><div class="n">รอข้อมูล</div></div>
+      <div class="lv na"><div class="t">TP2</div><div class="n">รอข้อมูล</div></div>
+      <div class="lv na"><div class="t">SL</div><div class="n">รอข้อมูล</div></div>
+    </div>`;
+  }
+  return `<div class="plan-head"><span class="lbl">แผนเทคนิค ณ เวลานี้</span>${pl.rr!=null?`<span class="rr">R:R ≈ 1:${pl.rr}</span>`:''}</div>
+  <div class="levels">
+    <div class="lv entry"><div class="t">เข้าซื้อ</div><div class="n">${fmt(pl.entryLow)}–${fmt(pl.entryHigh)}</div></div>
+    <div class="lv tp"><div class="t">TP1</div><div class="n">${fmt(pl.tp1)}</div></div>
+    <div class="lv tp"><div class="t">TP2</div><div class="n">${fmt(pl.tp2)}</div></div>
+    <div class="lv sl"><div class="t">SL</div><div class="n">${fmt(pl.sl)}</div></div>
+  </div>`;
+}
+
+function ladderHTML(s){
+  const q=QUOTES[s.sym];
+  const pl = q && q.plan;
+  if(!pl) return '';
+  const min=pl.sl-(pl.tp2-pl.sl)*0.08, max=pl.tp2+(pl.tp2-pl.sl)*0.08;
+  const pct=v=>Math.min(100,Math.max(0,(v-min)/(max-min)*100)).toFixed(1)+'%';
+  const entryMid=(pl.entryLow+pl.entryHigh)/2;
   return `<div class="ladder">
     <div class="track"></div>
-    <div class="pin" style="left:${pct(l.sl)};background:var(--down)"></div><div class="lab" style="left:${pct(l.sl)}">SL</div>
-    ${e?`<div class="pin" style="left:${pct(e)};background:var(--sky)"></div><div class="lab" style="left:${pct(e)}">เข้า</div>`:''}
-    <div class="pin" style="left:${pct(l.tp)};background:var(--up)"></div><div class="lab" style="left:${pct(l.tp)}">TP</div>
-    ${q&&q.price!=null?`<div class="pin cur" style="left:${pct(q.price)}"></div>`:''}
+    <div class="pin" style="left:${pct(pl.sl)};background:var(--down)"></div><div class="lab" style="left:${pct(pl.sl)}">SL</div>
+    <div class="pin" style="left:${pct(entryMid)};background:var(--sky)"></div><div class="lab" style="left:${pct(entryMid)}">เข้า</div>
+    <div class="pin" style="left:${pct(pl.tp1)};background:var(--up)"></div><div class="lab" style="left:${pct(pl.tp1)}">TP1</div>
+    <div class="pin" style="left:${pct(pl.tp2)};background:var(--up)"></div><div class="lab" style="left:${pct(pl.tp2)}">TP2</div>
+    ${q.price!=null?`<div class="pin cur" style="left:${pct(q.price)}"></div>`:''}
   </div>`;
 }
 
@@ -359,19 +369,17 @@ function cardHTML(s){
     </div>
     ${liveHTML(s)}
     ${techHTML(s)}
+    ${planHTML(s)}
+    ${ladderHTML(s)}
     ${aiNoteHTML(s)}
     <div class="playrow">${plays}</div>
-    <div class="reason">${s.reason}</div>
-    <div class="levels">
-      <div class="lv entry"><div class="t">เข้าซื้อ</div><div class="n">${s.entry}</div></div>
-      <div class="lv tp"><div class="t">TP1</div><div class="n">${s.tp1}</div></div>
-      <div class="lv tp"><div class="t">TP2</div><div class="n">${s.tp2}</div></div>
-      <div class="lv sl"><div class="t">Stop Loss</div><div class="n">${s.sl}</div></div>
-    </div>
-    ${ladderHTML(s)}
-    <div style="display:flex;justify-content:space-between;align-items:center">
-      <span class="src">ที่มา: <b>${s.src}</b></span>
-      ${s.up?`<span class="upside">▲ ${s.up}</span>`:''}
+    <div class="analyst">
+      <div class="lbl2">ข้อมูลเสริมจากบทวิเคราะห์</div>
+      <div class="reason">${s.reason}</div>
+      <div class="foot">
+        <span class="src">ที่มา: <b>${s.src}</b></span>
+        <span class="target">${s.analystTarget}</span>
+      </div>
     </div>
   </div>`;
 }
@@ -408,13 +416,13 @@ async function loadQuotes(){
       txt.textContent='🕐 '+UPDATED; ago.textContent='';
     }else{
       const mins=UPDATED_ISO?(Date.now()-new Date(UPDATED_ISO).getTime())/60000:0;
-      if(mins>150) pill.classList.add('old'); // เกิน 2.5 ชม. = เตือนว่าข้อมูลอาจค้าง
-      txt.textContent=(mins>150?'⚠️ ข้อมูลอาจค้าง — ':'🕐 ')+'ราคาอัปเดตล่าสุด: '+UPDATED;
+      if(mins>150) pill.classList.add('old');
+      txt.textContent=(mins>150?'⚠️ ข้อมูลอาจค้าง — ':'🕐 ')+'อัปเดตล่าสุด: '+UPDATED;
       ago.textContent=agoText(UPDATED_ISO);
     }
   }catch(e){
     pill.classList.add('stale');
-    txt.textContent='โหมดออฟไลน์ — แสดงเฉพาะระดับราคาจากบทวิเคราะห์ (ยังไม่มี data.json)';
+    txt.textContent='โหมดออฟไลน์ — ยังไม่มี data.json (รอ GitHub Actions รันรอบแรก)';
     ago.textContent='';
   }
   render();
@@ -435,7 +443,7 @@ document.getElementById('playTabs').addEventListener('click',e=>{
 document.getElementById('q').addEventListener('input',e=>{query=e.target.value;render();});
 
 loadQuotes();
-setInterval(loadQuotes, 15*60*1000); // เปิดหน้าค้างไว้ก็รีเฟรชเองทุก 15 นาที
+setInterval(loadQuotes, 15*60*1000);
 </script>
 </body>
 </html>
