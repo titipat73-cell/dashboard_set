@@ -1,1 +1,76 @@
-{"updated":"ยังไม่ได้รันระบบอัปเดต — กด Run workflow ใน GitHub Actions","quotes":{}}
+{
+ "updated": "เสาร์ 22/08/2569 00:54 น. (เวลาไทย)",
+ "updated_iso": "2026-08-21T17:54:36.148585+00:00",
+ "quotes": {
+  "BDMS": {
+   "price": 19.9,
+   "chg": 0.1,
+   "chgPct": 0.51
+  },
+  "KKP": {
+   "price": 114.5,
+   "chg": 2.0,
+   "chgPct": 1.78
+  },
+  "DELTA": {
+   "price": 258.0,
+   "chg": -5.0,
+   "chgPct": -1.9
+  },
+  "AWC": {
+   "price": 3.0,
+   "chg": 0.04,
+   "chgPct": 1.35
+  },
+  "BANPU": {
+   "price": 14.5,
+   "chg": 0.1,
+   "chgPct": 0.69
+  },
+  "DOHOME": {
+   "price": 3.7,
+   "chg": 0.0,
+   "chgPct": 0.0
+  },
+  "EPG": {
+   "price": 6.2,
+   "chg": 0.0,
+   "chgPct": 0.0
+  },
+  "CPAXT": {
+   "price": 14.8,
+   "chg": 0.1,
+   "chgPct": 0.68
+  },
+  "COCOCO": {
+   "price": 6.0,
+   "chg": -0.05,
+   "chgPct": -0.83
+  },
+  "KTC": {
+   "price": 37.5,
+   "chg": 0.0,
+   "chgPct": 0.0
+  },
+  "BBGI": {
+   "price": 6.3,
+   "chg": 0.35,
+   "chgPct": 5.88
+  },
+  "AAPL80": {
+   "price": 10.2,
+   "chg": -0.2,
+   "chgPct": -1.92
+  },
+  "TSLA80": {
+   "price": 2.3,
+   "chg": 0.02,
+   "chgPct": 0.88
+  },
+  "BABA80": {
+   "price": 5.15,
+   "chg": 0.0,
+   "chgPct": 0.0
+  }
+ }
+}
